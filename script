@@ -1,0 +1,875 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+print(Rayfield)
+local yes = true
+local TweenService = game:GetService("TweenService")
+local Window = Rayfield:CreateWindow({
+	Name = "jack and ifugs trolling gui",
+	Icon = "scroll-text", -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+	LoadingTitle = "loading your hooligan stuff",
+	LoadingSubtitle = "oh yeah huge thx to sirius cuz gui",
+	Theme = "Ocean", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+	DisableRayfieldPrompts = false,
+	DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = nil, -- Create a custom folder for your hub/game
+		FileName = "coolguy"
+	},
+
+	Discord = {
+		Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+		Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+		RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+	},
+
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "yes its key system",
+		Subtitle = "ask jack",
+		Note = "so like ask ifug", -- Use this to tell the user how to get a key
+		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"wow script"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+	}
+})
+local Tab = Window:CreateTab("main thing", 4483362458) -- Title, Image
+local TabMisc = Window:CreateTab("Misc", 4483362458) -- Title, Image
+local TabCre = Window:CreateTab("yas credit and deletion", 4483362458) -- Title, Image
+local TabIG = Window:CreateTab("Island Gods", 4483362458) -- Title, Image
+
+
+local Button = Tab:CreateButton({
+	Name = "OLDBOOT PLZPLZPLZPZL -must have fishing rod too",
+	Callback = function()
+		local args = {
+			[1] = "Old Boot",
+			[2] = Vector3.new(-103.44815826416016, 588.499267578125, 5.811649799346924)
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("MakeFish"):FireServer(unpack(args))
+	end,
+})
+
+
+local Label = TabCre:CreateLabel("credits to jack and tri cuz yah we made it")
+
+local Button = TabCre:CreateButton({
+	Name = "plz dont destroy ui",
+	Callback = function()
+		Rayfield:Destroy()
+	end,
+})
+local Button1 = Tab:CreateButton({
+	Name = "omg BLUE. Fish  -must have fishing rod too",
+	Callback = function()
+		local args = {
+			[1] = "Bluefish",
+			[2] = Vector3.new(-103.44815826416016, 588.499267578125, 5.811649799346924)
+		}
+
+		game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("MakeFish"):FireServer(unpack(args))
+	end,
+})
+
+	local Input = TabMisc:CreateInput({
+		Name = "Respawn them brah",
+		CurrentValue = "0",
+		PlaceholderText = "yes if u wanna respawn someone stupid",
+		RemoveTextAfterFocusLost = false,
+		Flag = "Input1",
+		Callback = function(Text)
+			local args = {
+				[1] = game:GetService("Players"):WaitForChild(Text)
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
+
+		end,
+	})
+
+	local Input2 = TabMisc:CreateInput({
+		Name = "get any mask",
+		CurrentValue = "Holy Man",
+		PlaceholderText = "yes",
+		RemoveTextAfterFocusLost = false,
+		Flag = "Input2",
+		Callback = function(Text)
+			local args = {
+				[1] = Text
+			}
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("EquipMask"):FireServer(unpack(args))
+		end,		
+	})
+
+	local counter = 1
+	local on
+	local Keybind = Tab:CreateKeybind({
+		Name = "arrow shoot keybind yah",
+		CurrentKeybind = "Z",
+		HoldToInteract = false,
+		Flag = "Keybind", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function()
+			counter+=1
+			if (counter % 2 == 0) then
+				on = true
+			else
+				on = false
+			end
+			
+			while wait(0.01) do
+				local args = {
+					[1] = "Dart",
+					[2] = game.Players.LocalPlayer:GetMouse().Hit.Position,
+					[3] = math.huge
+				}
+				if on == true then
+					game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("MakeProjectile"):FireServer(unpack(args))
+				else
+					break
+				end
+			end
+		end,
+	})
+	local Button2 = Tab:CreateButton({
+		Name = "omg goldFish  -must have fishing rod too",
+		Callback = function()
+			local args = {
+				[1] = "Goldfish",
+				[2] = Vector3.new(-103.44815826416016, 588.499267578125, 5.811649799346924)
+			}
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("MakeFish"):FireServer(unpack(args))
+		end,
+	})
+	local Button3 = Tab:CreateButton({
+		Name = "omg nameless admin  -must have fishing rod too yeah i know right",
+		Callback = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source"))();
+		end,
+	})
+	local Button4 = TabMisc:CreateButton({
+		Name = "respawn fun quickly",
+		Callback = function()
+			local args = {
+				[1] = game:GetService("Players"):WaitForChild("fun4ever250")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
+		end,
+	})
+	local Button5 = TabMisc:CreateButton({
+		Name = "respawn trivo quickly",
+		Callback = function()
+			local args = {
+				[1] = game:GetService("Players"):WaitForChild("IFUGPEOPLELIKESISTER")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
+		end,
+	})
+	local Button6 = TabMisc:CreateButton({
+		Name = "respawn jack quickly",
+		Callback = function()
+			local args = {
+				[1] = game:GetService("Players"):WaitForChild("jack101niku")
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
+		end,
+	})
+	local Button7 = TabMisc:CreateButton({
+		Name = "give urself inf hp(this is for u jack cuz u suck lol)",
+		Callback = function()
+			local args = {
+				[1] = game:GetService("Players").LocalPlayer,
+				[2] = 0/0--nan
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("DamagePlayer"):FireServer(unpack(args))
+		end,
+	})
+	local Button8 = TabMisc:CreateButton({
+		Name = "respawn self",
+		Callback = function()
+			local args = {
+				[1] = game:GetService("Players").LocalPlayer
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
+		end,
+	})
+	local Keybind2 = Tab:CreateKeybind({
+		Name = "shoot far in blue lock rivals",
+		CurrentKeybind = "M",
+		HoldToInteract = false,
+		Flag = "Keybind", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function(Keybind)
+			Rayfield:LoadConfiguration()
+			local args = {
+				[1] = -4000,
+			}
+
+			game:GetService("ReplicatedStorage").Packages.Knit.Services.BallService.RE.Shoot:FireServer(unpack(args))
+
+		end,
+	})
+
+	local counter1 = 1
+	local on1
+
+	local Button9 = TabMisc:CreateButton({
+		Name = "omg inf gifts yes i said inf",
+		Callback = function()
+			counter1+=1
+
+			if (counter1 % 2 == 0) then
+				on1 = true
+			else
+				on1 = false
+			end
+
+			while wait(0.005) do
+				local args = {
+					[1] = "Use",
+					[2] = game:GetService("Players").LocalPlayer.Character.Giftbox
+				}
+				if on1 == true then
+					game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("InteractItem"):FireServer(unpack(args))
+				else
+					break
+				end
+			end
+			--yah
+		end,
+	})
+	local Button10 = TabMisc:CreateButton({
+		Name = "uh break server yeah-litteraly ends the server",
+		Callback = function()
+			local function delete2(pathh)
+				local args = {
+					[1] = "Destroy",
+					[2] = pathh
+				}
+
+				game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+			end
+			delete2(game:GetService("Workspace").Items)
+			delete2(game:GetService("Workspace").Entities)
+			delete2(game:GetService("Workspace").Trees)
+			delete2(game:GetService("Workspace").Plants)
+			delete2(game:GetService("Workspace").Animals)
+			delete2(game:GetService("Workspace").CameraParts)
+			delete2(game:GetService("Workspace").Temp)
+			delete2(game:GetService("Workspace").Spawns)
+			delete2(game:GetService("Workspace").Buildings)
+			delete2(game:GetService("Workspace").AlreadyLost)
+			delete2(game:GetService("Workspace").Ocean)
+			delete2(game:GetService("Workspace").Island)
+		end,
+	})
+	local Button11 = TabMisc:CreateButton({
+		Name = "chicken spitter, and you better drop to stop",
+		Callback = function()
+			while wait() do local args = {
+				[1] = "Use",
+				[2] = game:GetService("Players").LocalPlayer.Character.Egg
+				}		game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("InteractItem"):FireServer(unpack(args))
+			end
+		end,
+	})
+	local Button12 = TabMisc:CreateButton({
+		Name = "kill stupid animals",
+		Callback = function()
+			for i,v in pairs(workspace.Animals:GetChildren()) do
+				local args = {
+					[1] = "Dart",
+					[2] = Vector3.new(v.Torso.Position.X,v.Torso.Position.Y,v.Torso.Position.Z),
+					[3] = math.huge
+				}
+
+				game:GetService("ReplicatedStorage").Resources.Remotes.MakeProjectile:FireServer(unpack(args))
+			end
+		end,
+	})	
+	local Button13 = Tab:CreateButton({
+		Name = "u want no kick totems? no problem",
+		Callback = function()
+			local function delete3(pathh)
+				local args = {
+					[1] = "Destroy",
+					[2] = pathh
+				}
+
+				game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+			end
+			delete3(game:GetService("Workspace").Buildings["Kick Totem"])
+		end,
+	})
+
+	local Button14 = Tab:CreateButton({
+		Name = "SERVER ENDER!!!!!",
+		Callback = function()
+			for i, v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+					local args = {
+						[1] = "Destroy",
+						[2] = v.Head
+					}
+
+					game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+				end
+			end
+		end,
+	})
+
+	--verified
+	local Button15 = Tab:CreateButton({
+		Name = "kill stupid idiots - not kill u btw",
+		Callback = function()
+			for i, v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Name ~= game.Players.LocalPlayer.Name then
+					local args = {
+						[1] = "Destroy",
+						[2] = v.Head
+					}
+
+					game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+				end
+			end
+		end,
+	})
+	local Input2 = TabCre:CreateInput({
+		Name = "yes delete",
+		CurrentValue = "whatev u want",
+		PlaceholderText = "no",
+		RemoveTextAfterFocusLost = false,
+		Flag = "Input2",
+		Callback = function(Text)
+			for i, v in pairs(workspace:GetDescendants()) do
+				if v.Name == Text then
+					local args = {
+						[1] = "Destroy",
+						[2] = v
+					}
+					game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+				end
+			end
+		end,		
+	})
+
+	local Button16 = TabMisc:CreateButton({
+		Name = "make animals immortal (peta youre welcome)",
+		Callback = function()
+			for i, v in pairs(workspace:WaitForChild("Animals"):GetChildren()) do
+				local args = {
+					[1] = v,
+					[2] = 0/0
+				}
+
+				game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("DamageAnimal"):FireServer(unpack(args))
+			end
+		end
+	})
+
+	local Button17 = Tab:CreateButton({
+		Name = "Item asylum hitbox expander(only works for range weapons-and universal",
+		Callback = function()
+			task.spawn(function()
+				for i, v in pairs(game.Workspace:GetDescendants()) do
+					if v:FindFirstChild("Humanoid") then
+						local hrp = v:WaitForChild("HumanoidRootPart")
+						local extraHitbox = Instance.new("Part")
+						extraHitbox.Parent = v
+						extraHitbox.Name = "Hitbox"
+						extraHitbox.Anchored = false
+						extraHitbox.CanCollide = false
+						extraHitbox.Transparency = 0.7
+						extraHitbox.Size = Vector3.new(25,25,25) --Put wanted size here
+						extraHitbox.Position = hrp.Position + Vector3.new(0,0,0)--Vector3 not needed persee but used for offsetting part
+						local weld = Instance.new("WeldConstraint")
+						weld.Parent = extraHitbox
+						weld.Part0 = weld.Parent
+						weld.Part1 = hrp
+					end
+				end
+			end)
+		end,
+	})
+
+
+	------
+	local Keybind4 = Tab:CreateKeybind({
+		Name = "Destory thingy at mouse",
+		CurrentKeybind = "C",
+		HoldToInteract = false,
+		Flag = "Keybind5", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function()
+			local args = {
+				[1] = "Destroy",
+				[2] = game.Players.LocalPlayer:GetMouse().Target,
+			}
+
+			game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+		end,
+	})
+	local counter2=1
+	local on2
+	local Keybind5 = Tab:CreateKeybind({
+		Name = "spam gifter",
+		CurrentKeybind = "B",
+		HoldToInteract = false,
+		Flag = "Keybind6", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+		Callback = function()
+			counter2+=1
+
+			if (counter2 % 2 == 0) then
+				on2 = true
+			else
+				on2 = false
+			end
+
+			while wait(0.005) do
+				local args = {
+					[1] = "Use",
+					[2] = game:GetService("Players").LocalPlayer.Character.Giftbox
+				}
+				if on2 == true then
+					game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("InteractItem"):FireServer(unpack(args))
+				else
+					break
+				end
+			end
+			end,
+	})
+	local Button16 = Tab:CreateButton({
+		Name = "kill stupid idiot u hate",
+		Callback = function()
+			for i, v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Name ~= game.Players.LocalPlayer.Name then
+					local args = {
+						[1] = "Destroy",
+						[2] = v.Head
+					}
+
+					game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+				end
+			end
+		end,
+	})
+	local Input5 = TabCre:CreateInput({
+		Name = "make idiot die",
+		CurrentValue = "whatev u want",
+		PlaceholderText = "no",
+		RemoveTextAfterFocusLost = false,
+		Flag = "Input5",
+		Callback = function(Text)
+			for i, v in pairs(game.Workspace) do
+				if v.Name == Text and v:FindFirstChild("Humanoid") then
+					local args = {
+						[1] = "Destroy",
+						[2] = v.Head
+					}
+					game:GetService("ReplicatedStorage").Resources.Remotes.InteractItem:FireServer(unpack(args))
+				end
+			end
+		end,		
+	})
+	local Button17 = TabCre:CreateButton({
+		Name = "tp idiots to ur dumb server",
+		Callback = function()
+			local players = {}
+			for i,v in pairs(game.Players:GetPlayers()) do
+				table.insert(players, v)
+			end
+			game:GetService("ReplicatedStorage").Resources.Remotes.CreateServer:InvokeServer(players, game:GetService("Workspace").Buildings["Server Totem"], true, true)
+		end
+	})
+local counter3=0
+local on3
+local Button18 = TabIG:CreateButton({
+	Name = "spam break stuff in island god",
+	HoldToInteract = false,
+	Flag = "Button17", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function()
+		counter3+=1
+		if counter3 % 2 == 0 then
+			on3 = false
+		else
+			on3 = true
+		end
+		
+		while wait(0.005) do
+			local args = {
+				[1] = "UseTool",
+				[2] = CFrame.new(-1043.7957763671875, 288.4007568359375, -302.11785888671875, 0.6738205552101135, 0.5583913922309875, -0.4839059114456177, 0, 0.654904842376709, 0.7557113766670227, 0.738895058631897, -0.5092138648033142, 0.4412883222103119)
+			}
+			
+			if on3 == true then
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+counter5 = 0
+local Input6 = TabIG:CreateInput({
+	Name = "Autofarm Tween (Many Bugs)",
+	CurrentValue = "",
+	PlaceholderText = "Teleport no work so tween",
+	RemoveTextAfterFocusLost = false,
+	Flag = "Input6",
+	Callback = function(Text)
+		for i, v in pairs(workspace:GetChildren()) do
+			wait()
+			if v.Name == Text and v then
+				v:AddTag(counter5)
+				print("Tagged")
+				counter5+=1
+				if v:HasTag(1) then
+					local goal = {
+						Position = v.PrimaryPart.Position
+					}
+				
+					local TweenInfo1 = TweenInfo.new(2)
+					
+					print("Tag Removed")
+					Tween = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo1, goal)
+					v:RemoveTag(1)
+					
+					print(Rayfield)
+				end
+			end
+		end
+	end,
+})
+
+local Toggle1 = TabIG:CreateToggle({
+	Name = "TweenOn?",
+	Flag = "Toggle1",
+	Callback = function(Value)
+		if Value == true then
+			if Tween then
+				Tween:Play()
+			end
+		elseif Value == false then
+			if Tween then
+				Tween:Cancel()
+			end
+		end
+	end,
+})
+
+local on4 = false
+local Toggle2 = TabIG:CreateToggle({
+	Name = "Insta-kill everyone",
+	Flag = "Toggle2",
+	Callback = function(Value)
+		if on4 == false then
+			on4 = true
+		elseif on4 == true then
+			on4 = false
+		end
+		while wait() do
+			for i, v in pairs(workspace:GetChildren()) do
+				if v:FindFirstChild("Humanoid") and v.Name ~= game.Players.LocalPlayer.Name then
+					local args = {
+						[1] = "ReportProjectileImpact",
+						
+						[2] = {
+							["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+							["senderModel"] = game.Players.LocalPlayer.Character,
+							["ammoType"] = "Steel Arrow",
+							["speed"] = math.huge,
+							["projectileType"] = "Aetherite Ball",
+							["weaponType"] = "Aetherite Handcannon",
+							["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+						},
+							
+							[3] = {
+								["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+								["instance"] = v:FindFirstChild("Head"),
+								["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+							}
+					}
+					
+					if on4 == false then
+						break
+					elseif on4 == true then
+						game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+					end
+				end
+			end
+		end
+	end,
+})
+local Toggle3 = TabIG:CreateToggle({
+	Name = "-poison guy named augh",
+	Flag = "Toggle3",
+	Callback = function(Value)
+		while wait(0.2) do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Iron Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Iron Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("Stunnify_Creak").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+
+local Toggle4 = TabIG:CreateToggle({
+	Name = "-poison andiddy(he touches kids)",
+	Flag = "Toggle4",
+	Callback = function(Value)
+		while wait(0.4) do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Holly Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Holly Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("KingCreeper_Original").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+local Toggle7 = TabIG:CreateToggle({
+	Name = "-execute this man named skellet (he is bad at trading and deserves death)",
+	Flag = "Toggle7",
+	Callback = function(Value)
+		while wait(0.2) do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Holly Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Holly Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("skellet2009").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+
+local Toggle5 = TabIG:CreateToggle({
+	Name = "auto block-- u need stupid aetherite sword",
+	HoldToInteract = false,
+	Flag = "Toggle5", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+
+		while wait(0.005) do
+				local args = {
+					[1] = "StartBlocking"
+				}
+
+			if Value == true then
+				game:GetService("Players").LocalPlayer.Character:FindFirstChild("Aetherite Sword").ActionRemote:FireServer(unpack(args))
+			end
+		end
+	end,
+})
+local on5 = false
+local Toggle6 = TabIG:CreateToggle({
+	Name = "waterbucket area xd",
+	HoldToInteract = false,
+	Flag = "Toggle6", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if on5 == false then
+			on5 = true
+		elseif on5 == true then
+			on5 = false		
+		end
+		while wait() do
+			if on5 == true then
+				local args = {
+					[1] = "Splash",
+					[2] = game.Players.LocalPlayer:GetMouse().Hit.Position
+				}
+
+				if Value == true then
+					game:GetService("Players").LocalPlayer.Character.Bucket.ActionRemote:FireServer(unpack(args))
+				end
+			end
+		end
+	end,
+})
+local on6 = false
+local Toggle7 = TabIG:CreateToggle({
+	Name = "loop refill bucket o wah'uh",
+	HoldToInteract = false,
+	Flag = "Toggle6", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		if on6 == false then
+			on6 = true
+		elseif on6 == true then
+			on6 = false		
+		end
+		while wait() do
+			if on6 == true then
+				local args = {
+					[1] = "Refill",
+					[2] = workspace:WaitForChild("Stone Well")
+}
+				if Value == true then
+					game:GetService("Players").LocalPlayer.Character.Bucket.ActionRemote:FireServer(unpack(args))
+				end
+			end
+		end
+	end,
+})
+local Toggle9 = TabIG:CreateToggle({
+	Name = "-anti ripoffs (gtg5hfu) they are bad at hacking lol",
+	Flag = "Toggle9",
+	Callback = function(Value)
+		while wait() do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Aetherite Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Aetherite Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("gtg5hfu").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+local Toggle10 = TabIG:CreateToggle({
+	Name = "-anti ripoff #2 (ice human) they are bad at hacking lol",
+	Flag = "Toggle10",
+	Callback = function(Value)
+		while wait() do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Aetherite Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Aetherite Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("ksesii75").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+local Toggle11 = TabIG:CreateToggle({
+	Name = "-anti griefer (masterzc) they are bad at griefing lol",
+	Flag = "Toggle11",
+	Callback = function(Value)
+		while wait() do
+			if Value == true then
+				local args = {
+					[1] = "ReportProjectileImpact",
+					[2] = {
+						["direction"] = Vector3.new(-0.9772520065307617, -0.06505150347948074, 0.20185844600200653),
+						["senderModel"] = game.Players.LocalPlayer.Character,
+						["ammoType"] = "Aetherite Arrow",
+						["speed"] = 600,
+						["projectileType"] = "Aetherite Arrow",
+						["weaponType"] = "Bow",
+						["origin"] = Vector3.new(1877.6148681640625, 21.50465202331543, -826.33251953125)
+					},
+					[3] = {
+						["normal"] = Vector3.new(0.9529932737350464, -0.22943416237831116, 0.19789870083332062),
+						["instance"] = game:GetService("Players"):WaitForChild("SusDude1293").Character.Head,
+						["position"] = Vector3.new(1866.906982421875, 17.777099609375, -824.1207275390625)
+					}
+				}
+				game:GetService("ReplicatedStorage"):WaitForChild("SIGNAL_REMOTE"):FireServer(unpack(args))
+			end
+		end
+	end,
+})
+local Button9 = TabIG:CreateButton({
+	Name = "control stupid bots -universal",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/randomstring0/Qwerty/refs/heads/main/qwerty23.lua"))()
+	end
+})
+
+
+local Keybind7 = TabIG:CreateKeybind({
+	Name = "waterbucket all the hobo",
+	CurrentKeybind = "X",
+	HoldToInteract = false,
+	Flag = "Keybind5", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function()
+		
+		for i, v in pairs(workspace:GetChildren()) do
+				if v:IsA("Model") and v:FindFirstChild("Humanoid") and v.Name ~= game.Players.LocalPlayer.Name then
+					local args = {
+						[1] = "Splash",
+						[2] = v.Humanoid.Position
+					}
+					
+					game:GetService("Players").LocalPlayer.Character.Bucket.ActionRemote:FireServer(unpack(args))
+					end
+				end
+			end
+})
+
+
+--triv:
+--jack:
+
+--how do you know??
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
