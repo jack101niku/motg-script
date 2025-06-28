@@ -512,6 +512,22 @@ local Button18 = TabIG:CreateButton({
 		end
 	end,
 })
+
+local Button19 = TabIG:CreateButton({
+	Name = "ServerEnder Potential unlocked",
+	HoldToInteract = false,
+	Flag = "Button18",
+	Callback = function()
+		for i,v in pairs(game.Workspace:GetDescendants()) do 
+			local args = {
+				[1] = "Destroy",
+				[2] = v
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Resources"):WaitForChild("Remotes"):WaitForChild("InteractItem"):FireServer(unpack(args))
+		end
+	end,
+})
 counter5 = 0
 local Input6 = TabIG:CreateInput({
 	Name = "Autofarm Tween (Many Bugs)",
